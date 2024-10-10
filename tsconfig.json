@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    // 确保生成类型声明文件
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    // 指定类型声明文件的输出目录
+    "declarationDir": "./dist/types",
+    "target": "ESNext",
+    // 设定编译的 JavaScript 版本
+    "module": "ESNext",
+    // 使用 ESNext 模块系统
+    "moduleResolution": "Node",
+    // 模块解析策略
+    "strict": true,
+    // 启用所有严格类型检查选项
+    "jsx": "preserve",
+    // JSX 保留用于 Vue 文件
+    "esModuleInterop": true,
+    // 允许 CommonJS 和 ES 模块之间的互操作性
+    "skipLibCheck": true,
+    // 跳过库文件的类型检查
+    "forceConsistentCasingInFileNames": true,
+    // 强制文件名一致的大小写
+    "resolveJsonModule": true,
+    // 允许引入 JSON 模块
+    "baseUrl": "./",
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.d.ts",
+    "**/*.tsx",
+    "**/*.vue"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
