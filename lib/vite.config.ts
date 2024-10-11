@@ -10,6 +10,7 @@ export default defineConfig({
             name: 'HonyUI',
             fileName: (format) => `hony-ui.${format}.js`
         },
+        outDir: 'dist',
         rollupOptions: {
             external: ['vue'],
             output: {

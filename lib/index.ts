@@ -19,3 +19,8 @@ const HonyUI = {
 };
 
 export default HonyUI;
+
+export {
+    HonyButton,
+    HonyInput,
+}
