@@ -1,14 +1,14 @@
 <template>
-    <button class="my-button">{{ text }}</button>
+    <button class="hony-button">{{ text }}</button>
 </template>
 <script setup lang="ts">
 import { ref } from 'vue'
 
-defineOptions({name: 'MyButton'})
+defineOptions({name: 'HonyButton'})
 const text = ref('Click me')
 </script>
 <style scoped>
-.my-button {
+.hony-button {
     background-color: #4CAF50;
     border: none;
     color: white;

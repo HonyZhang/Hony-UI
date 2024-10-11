@@ -1,8 +1,8 @@
-import MyButton from './components/MyButton.vue';
-import MyInput from './components/MyInput.vue';
+import HonyButton from './components/HonyButton.vue';
+import HonyInput from './components/HonyInput.vue';
 import { App } from 'vue';
 
-const components = [MyButton, MyInput];
+const components = [HonyButton, HonyInput];
 
 const install = (app: App) => {
     components.forEach((component) => {
