@@ -6,7 +6,8 @@
   "module": "dist/hony-ui.es.js",
   "types": "dist/types/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "styles"
   ],
   "keywords": [
     "vue",
@@ -23,6 +24,7 @@
   "devDependencies": {
     "@types/node": "^22.7.5",
     "@vitejs/plugin-vue": "^5.1.4",
+    "sass": "^1.79.5",
     "typescript": "^5.5.3",
     "vite": "^5.4.8",
     "vite-plugin-vue-devtools": "^7.4.6",
