@@ -1,10 +1,8 @@
 import HonyHorizontalScroll from './src/index.vue';
-import {type App} from 'vue'
+import type {App, Plugin} from 'vue'
 
-const install = function (app: App) {
+HonyHorizontalScroll.install = function (app: App) {
     app.component(HonyHorizontalScroll.name!, HonyHorizontalScroll);
 }
 
-export default {
-    install
-};
+export default HonyHorizontalScroll as typeof HonyHorizontalScroll & Plugin

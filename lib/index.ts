@@ -14,7 +14,7 @@ const install = (app: App) => {
     // 创建 link 元素
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = './styles/fonts';  // 外链地址
+    link.href = './themes/default/fonts';  // 外链地址
 
     // 将 link 元素添加到 head
     document.head.appendChild(link);

@@ -1,10 +1,8 @@
 import HonyButton from './src/index.vue';
-import {type App} from '@vue/runtime-core'
+import type {App, Plugin} from 'vue';
 
-const install = (app: App): void => {
+HonyButton.install = (app: App): void => {
     app.component(HonyButton.name!, HonyButton);
 };
 
-export default {
-    install
-};
+export default HonyButton as typeof HonyButton & Plugin

@@ -1,10 +1,8 @@
 import HonyInput from './src/index.vue';
-import {type App} from 'vue';
+import type {App, Plugin} from 'vue';
 
-const install = function (app: App) {
+HonyInput.install = function (app: App) {
     app.component(HonyInput.name!, HonyInput);
 }
 
-export default {
-    install
-};
+export default HonyInput as typeof HonyInput & Plugin
