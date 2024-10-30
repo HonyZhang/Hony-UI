@@ -74,6 +74,15 @@ onMounted(() => {
         container.addEventListener('wheel', (event: WheelEvent) => {
             event.preventDefault();
             // 根据鼠标滚轮的滚动量和滚动系数调整滚动距离
+            container.scrollLeft += event.deltaY;
+
+
+
+
+
+
+
+
             const scrollAmount = event.deltaY * props.scrollFactor;
             container.scrollLeft += scrollAmount;
             handleScroll();

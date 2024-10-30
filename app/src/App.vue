@@ -1,16 +1,14 @@
 <template>
     <div id="app">
-<!--        <hony-button-test/>-->
+        <hony-button-test/>
 <!--        <hony-input-test/>-->
-        <hony-horizontal-scroll-test/>
+<!--        <hony-horizontal-scroll-test/>-->
     </div>
 </template>
 
 <script setup lang="ts">
 
 import HonyButtonTest from '@/test/HonyButtonTest.vue'
-import HonyHorizontalScrollTest from '@/test/HonyHorizontalScrollTest.vue'
-import HonyInputTest from '@/test/HonyInputTest.vue'
 </script>
 
 <style>

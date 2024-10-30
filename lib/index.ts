@@ -1,17 +1,14 @@
-import HonyButton from './components/HonyButton.vue';
-import HonyInput from './components/HonyInput.vue';
-import HonyHorizontalScroll from './components/HonyHorizontalScroll.vue';
-import {App} from 'vue';
+import HonyButton from './components/HonyButton/index.js';
+import HonyInput from './components/HonyInput/index.js';
+import HonyHorizontalScroll from './components/HonyHorizontalScroll/index.js';
+import {HonyUIResolver} from './utils/HonyUIResolver';
+import {type App} from 'vue';
 
 const components = [HonyButton, HonyInput, HonyHorizontalScroll];
 
 const install = (app: App) => {
     components.forEach((component) => {
-        if (!component.name) {
-            console.warn(`Component name is undefined for ${component.component}`);
-        } else {
-            app.component(component.name, component);
-        }
+        app.use(component);
     });
 
     // 创建 link 元素
@@ -23,14 +20,13 @@ const install = (app: App) => {
     document.head.appendChild(link);
 };
 
-const HonyUI = {
+export default {
     install
 };
-
-export default HonyUI;
 
 export {
     HonyButton,
     HonyInput,
-    HonyHorizontalScroll
+    HonyHorizontalScroll,
+    HonyUIResolver
 }
