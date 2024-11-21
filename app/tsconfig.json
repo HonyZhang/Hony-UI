@@ -3,8 +3,16 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": [
+        "src/*"
+      ]
     },
+    "types": [
+      "vite/client",
+      "element-plus/global"
+    ]
   },
-  "include": ["**/*"]
+  "include": [
+    "**/*"
+  ]
 }

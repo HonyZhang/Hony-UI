@@ -23,8 +23,13 @@
     // 强制文件名一致的大小写,
     "forceConsistentCasingInFileNames": true,
     "composite": true,
+    "isolatedModules": true,
+    "paths": {
+      "@hony-ui/*": ["./*"]
+    },
+    "types": ["vite/client", "node"]
   },
   "include": [
     "**/*.vue, **/*.d.ts"
-  ]
+  ],
 }

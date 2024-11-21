@@ -1,5 +1,8 @@
 {
   "name": "root",
+  "scripts": {
+    "build": "gulp --import @esbuild-kit/cjs-loader -f build/gulpfile.ts"
+  },
   "dependencies": {
     "vue": "^3.5.10"
   },
@@ -7,16 +10,14 @@
     "@types/node": "^22.7.9",
     "@vitejs/plugin-vue": "^5.1.4",
     "@vue/runtime-core": "^3.5.12",
-    "gulp": "^5.0.0",
-    "rollup-plugin-visualizer": "^5.12.0",
     "sass": "^1.80.4",
-    "shelljs": "^0.8.5",
     "typescript": "^5.6.3",
     "unplugin-auto-import": "^0.18.3",
     "unplugin-vue-components": "^0.27.4",
     "vite": "^5.4.10",
     "vite-plugin-dts": "^4.3.0",
     "vite-plugin-vue-devtools": "^7.5.3",
-    "vue-tsc": "^2.1.8"
+    "vue-tsc": "^2.1.8",
+    "rollup-plugin-visualizer": "^5.12.0"
   }
 }

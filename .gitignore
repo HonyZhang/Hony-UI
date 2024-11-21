@@ -6,7 +6,7 @@
 /.idea/material_theme_project_new.xml
 /.idea/modules.xml
 /hony-ui-1.0.0.tgz
-/lib/dist/
+/packages/dist/
 /app/node_modules/
-/lib/node_modules/
+/packages/node_modules/
 /app/dist/

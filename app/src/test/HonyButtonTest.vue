@@ -1,5 +1,5 @@
 <template>
-    <hony-button>Click me</hony-button>
+    <hony-button >Click me</hony-button>
 </template>
 <script setup lang="ts">
 
