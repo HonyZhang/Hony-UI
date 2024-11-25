@@ -1,4 +1,4 @@
 import Input from './src/index.vue';
-import {withInstall} from '../../utils/install';
+import { withInstall } from '../../utils/install';
 
-export const HonyInput = withInstall(Input)
+export const HonyInput = withInstall(Input);

@@ -6,7 +6,10 @@
     "emitDeclarationOnly": true,
     "outDir": "../dist/types",
     "tsBuildInfoFile": "../dist/temp/.tsbuildinfo", // 将文件存储在临时目录
-    "types": ["node"]
+    "types": ["node"],
+    "paths": {
+      "@hony-ui/*": ["./*"]
+    }
   },
   "include": ["**/*"]
 }

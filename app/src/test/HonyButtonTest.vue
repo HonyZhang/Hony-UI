@@ -1,8 +1,7 @@
 <template>
-    <hony-button >Click me</hony-button>
+  <hony-button>Click me</hony-button>
 </template>
 <script setup lang="ts">
-
-defineOptions({name: 'HonyButtonTest'})
+defineOptions({ name: 'HonyButtonTest' });
 </script>
 <style lang="scss" scoped></style>
