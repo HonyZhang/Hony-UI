@@ -1,2 +1,2 @@
-import '@hony-ui/styles/base.scss';
-import '@hony-ui/styles/hony-button.scss';
+import '@hony-ui/styles/src/base.scss';
+import '@hony-ui/styles/src/hony-button.scss';

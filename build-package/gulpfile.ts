@@ -1,10 +1,17 @@
 import { dest, parallel, series, src, task } from 'gulp';
-import { buildFull } from '@hony-ui/build/src/tasks/rollup-full';
+import replace from 'gulp-replace';
+import { buildFull } from './src/tasks/rollup-full';
 import { fileURLToPath } from 'node:url';
 import clean from 'gulp-clean';
-import { buildModules } from '@hony-ui/build/src/tasks/rollup-modules';
+import { buildModules } from './src/tasks/rollup-modules';
 import * as fs from 'node:fs';
-import { generateTypes } from '@hony-ui/build/src/tasks/generate-types';
+import { generateTypes } from './src/tasks/generate-types';
+import { buildDarkCssVars, buildThemeDefault } from './src/tasks/build-style';
+
+type ReplaceRule = {
+  target: string;
+  replacement: string;
+};
 
 // 路径解析函数，将相对路径解析为绝对路径
 const resolvePath = (relativePath: string) =>
@@ -14,6 +21,8 @@ const resolvePath = (relativePath: string) =>
 const paths = {
   rootDist: '../dist',
   typesSrc: '../dist/types/**/*',
+  stylesSrc: '../packages/styles/**/*.scss',
+  stylesDestDirs: ['../dist/styles/src'],
   typesDir: '../dist/types',
   destDirs: ['../dist/es', '../dist/lib'],
   indexTypeSrc: '../dist/types/index.d.ts',
@@ -57,13 +66,22 @@ const buildAll = async () => {
 const copyFiles = (
   srcPath: string,
   destPaths: string[],
-  successMessage: string
+  successMessage: string,
+  replaceImportPaths?: ReplaceRule[]
 ) =>
   Promise.all(
     destPaths.map(
       destDir =>
         new Promise<void>((resolve, reject) => {
-          src(resolvePath(srcPath))
+          let stream = src(resolvePath(srcPath));
+          if (replaceImportPaths) {
+            replaceImportPaths.forEach(({ target, replacement }) => {
+              stream = stream.pipe(
+                replace(new RegExp(target, 'g'), replacement)
+              );
+            });
+          }
+          stream
             .pipe(dest(resolvePath(destDir)))
             .on('end', () => resolve())
             .on('error', reject);
@@ -98,7 +116,13 @@ const modifyPackageJson = async () => {
 
 // 复制类型文件任务
 const copyTypes = () =>
-  copyFiles(paths.typesSrc, paths.destDirs, '类型定义文件复制');
+  copyFiles(paths.typesSrc, paths.destDirs, '类型定义文件复制', [
+    { target: '@hony-ui/styles', replacement: 'hony-ui/styles' },
+  ]);
+
+// 复制类型文件任务
+const copyStyles = () =>
+  copyFiles(paths.stylesSrc, paths.stylesDestDirs, 'scss样式文件复制');
 
 // 复制 index.d.ts 文件任务
 const copyIndexType = () =>
@@ -134,6 +158,7 @@ task(
   series(
     'clean-dist',
     parallel(buildMultiModules, buildAll, 'build-types'),
-    parallel(modifyPackageJson, 'copy-global-types')
+    parallel(modifyPackageJson, 'copy-global-types'),
+    parallel(copyStyles, buildThemeDefault, buildDarkCssVars)
   )
 );

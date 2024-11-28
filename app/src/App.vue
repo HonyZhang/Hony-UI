@@ -8,8 +8,6 @@
 
 <script setup lang="ts">
 import HonyButtonTest from '@/test/HonyButtonTest.vue';
-
-const a: any = 1;
 </script>
 
 <style>

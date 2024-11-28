@@ -8,7 +8,7 @@
     "tsBuildInfoFile": "../dist/temp/.tsbuildinfo", // 将文件存储在临时目录
     "types": ["node"],
     "paths": {
-      "@hony-ui/*": ["./*"]
+      "@hony-ui/styles/src/*": ["./styles/*"]
     }
   },
   "include": ["**/*"]

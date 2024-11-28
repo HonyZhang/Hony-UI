@@ -1,11 +1,12 @@
 import { rollup } from 'rollup';
 import vue from '@vitejs/plugin-vue';
-import { getFiles } from '@hony-ui/build/src/build-infos';
+import { getFiles } from '../build-infos';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import esbuild from 'rollup-plugin-esbuild';
 import json from '@rollup/plugin-json';
 import { fileURLToPath } from 'node:url';
+import { HonyUIAlias } from '../plugins/hony-ui-alias';
 
 export const buildModules = async () => {
   try {
@@ -13,6 +14,7 @@ export const buildModules = async () => {
     const inputOptions = {
       input,
       plugins: [
+        HonyUIAlias(),
         vue({
           isProduction: true,
         }),

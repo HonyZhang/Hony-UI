@@ -1,0 +1,12 @@
+@use 'sass:map';
+
+// Background
+$bg-color: () !default;
+$bg-color: map.merge(
+                (
+                        '': #ffffff,
+                        'page': #f2f3f5,
+                        'overlay': #ffffff,
+                ),
+                $bg-color
+);

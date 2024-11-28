@@ -1,0 +1,12 @@
+@use 'sass:map';
+
+// zIndex
+$z-index: () !default;
+$z-index: map.merge(
+                (
+                        'normal': 1,
+                        'top': 1000,
+                        'popper': 2000,
+                ),
+                $z-index
+);

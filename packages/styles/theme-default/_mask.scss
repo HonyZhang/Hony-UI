@@ -1,0 +1,11 @@
+@use 'sass:map';
+
+// mask
+$mask-color: () !default;
+$mask-color: map.merge(
+                (
+                        '': rgba(255, 255, 255, 0.9),
+                        'extra-light': rgba(255, 255, 255, 0.3),
+                ),
+                $mask-color
+);

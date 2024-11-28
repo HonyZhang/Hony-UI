@@ -1,5 +1,5 @@
 {
-  "name": "build",
+  "name": "build-package",
   "version": "1.0.0",
   "description": "Build package for the project",
   "type": "module",
@@ -14,11 +14,14 @@
     "@rollup/plugin-typescript": "^12.1.1",
     "@types/fs-extra": "^11.0.4",
     "@types/gulp": "^4.0.17",
+    "@types/gulp-sass": "^5.0.4",
     "del": "^8.0.0",
     "fast-glob": "^3.3.2",
     "fs-extra": "^11.2.0",
     "gulp": "^5.0.0",
     "gulp-clean": "^0.4.0",
+    "gulp-replace": "^1.1.4",
+    "gulp-sass": "^6.0.0",
     "rollup": "^4.24.3",
     "rollup-plugin-esbuild": "^6.1.1",
     "unplugin-vue-macros": "^2.13.3"

@@ -5,6 +5,7 @@ import esbuild from 'rollup-plugin-esbuild';
 import json from '@rollup/plugin-json';
 import { fileURLToPath } from 'node:url';
 import { rollup } from 'rollup';
+import { HonyUIAlias } from '../plugins/hony-ui-alias';
 
 export const buildFull = async () => {
   try {
@@ -13,6 +14,7 @@ export const buildFull = async () => {
         new URL('../../../packages/index.ts', import.meta.url)
       ),
       plugins: [
+        HonyUIAlias(),
         vue(),
         nodeResolve({
           extensions: ['.mjs', '.js', '.ts'],
