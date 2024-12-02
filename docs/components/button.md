@@ -3,7 +3,10 @@ hello: world
 ---
 
 ::: info
+<template>
 <hony-button>Hello, world!</hony-button>
+</template>
+
 :::
 
 ::: tip
