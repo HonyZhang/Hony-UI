@@ -9,7 +9,7 @@ export { HonyUIResolver } from './utils/hony-ui-resolver';
 
 const components = [HonyButton, HonyInput, HonyHorizontalScroll];
 
-export const install = (app: App) => {
+const install = (app: App) => {
   components.forEach(component => {
     component.install!(app);
   });
@@ -21,6 +21,10 @@ export const install = (app: App) => {
 
   // 将 link 元素添加到 head
   document.head.appendChild(link);
+};
+
+export default {
+  install,
 };
 
 export { HonyButton, HonyInput, HonyHorizontalScroll };

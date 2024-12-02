@@ -1,0 +1,14 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "types": ["vite/client","vue"],
+    "baseUrl": ".",
+    "paths": {
+      "hony-ui": ["../packages/index.ts"],
+      "hony-ui/styles/*": ["../packages/styles/*"]
+    }
+  },
+  "include": [
+    "**/*.md"
+  ]
+}
