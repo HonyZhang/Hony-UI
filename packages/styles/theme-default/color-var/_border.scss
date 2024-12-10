@@ -1,0 +1,7 @@
+@use 'sass:map';
+@use 'color-palette' as *;
+
+$border-colors: (
+        'color-border-regular': map.get($color-palette, gray-blue-5),
+        'color-border-divider': map.get($color-palette, gray-blue-4),
+);

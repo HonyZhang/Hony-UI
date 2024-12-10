@@ -1,0 +1,15 @@
+@use 'sass:map';
+@use 'color-palette' as *;
+
+$background-colors: (
+        'color-bg-base-1': map.get($color-palette, gray-blue-1),
+        'color-bg-base-2': map.get($color-palette, gray-blue-2),
+        'color-bg-container-base-1': map.get($color-palette, gray-blue-1),
+        'color-bg-container-base-2': map.get($color-palette, gray-blue-2),
+        'color-bg-container-base-3': map.get($color-palette, gray-blue-3),
+        'color-bg-container-default': map.get($color-palette, gray-blue-1),
+        'color-bg-container-hover': map.get($color-palette, gray-blue-3),
+        'color-bg-container-active': map.get($color-palette, blue-1),
+);
+
+

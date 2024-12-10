@@ -1,0 +1,18 @@
+@use 'sass:map';
+@use '../../mixins/function' as *;
+@use 'brand' as *;
+@use 'background' as *;
+@use 'text' as *;
+@use 'border' as *;
+@use 'icon' as *;
+@use 'semantic' as *;
+
+
+$colors: deep-merge-maps(
+                $brand-colors,
+                $background-colors,
+                $text-colors,
+                $border-colors,
+                $icon-colors,
+                $semantic-colors
+);

@@ -2,6 +2,7 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "types": ["vite/client","vue"],
+    "noEmit": true,
     "baseUrl": ".",
     "paths": {
       "hony-ui": ["../packages/index.ts"],

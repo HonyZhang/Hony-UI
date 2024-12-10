@@ -1,0 +1,12 @@
+@use 'sass:map';
+@use 'color-palette' as *;
+
+$icon-colors: (
+        'color-icon-gray-default': map.get($color-palette, gray-blue-8),
+        'color-icon-gray-hover': map.get($color-palette, gray-blue-9),
+        'color-icon-gray-active': map.get($color-palette, gray-blue-9),
+        'color-icon-blue-default': map.get($color-palette, blue-6),
+        'color-icon-blue-hover': map.get($color-palette, blue-7),
+        'color-icon-blue-active': map.get($color-palette, blue-7),
+        'color-icon-inverse': map.get($color-palette, gray-blue-1),
+);

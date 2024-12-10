@@ -50,14 +50,14 @@ export const HonyUIResolver = (): ComponentResolver => ({
       return {
         name: ComponentName,
         from: `hony-ui`,
-        sideEffects: `hony-ui/es/components/${name}/style/css.ts`,
+        sideEffects: `hony-ui/es/components/${name}/style/css.mjs`,
       };
     }
     if (name.startsWith('Hony')) {
       return {
         name: ComponentName,
         from: `hony-ui`,
-        sideEffects: `hony-ui/es/components/${toKebabCaseIfPascalCase(name)}/style/css.ts`,
+        sideEffects: `hony-ui/es/components/${toKebabCaseIfPascalCase(name)}/style/css.mjs`,
       };
     }
     return null;

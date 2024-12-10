@@ -3,6 +3,9 @@
 @use 'config' as *;
 @use 'function' as *;
 
+$B: null;
+$E: null;
+
 // BEM
 @mixin b($block) {
   $B: $namespace + $common-separator + $block !global;

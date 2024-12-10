@@ -1,24 +1,55 @@
-@use 'sass:map';
+@font-face {
+  font-family: 'Source Han Sans SC';
+  src: url('../fonts/source-han-sans-sc/SourceHanSansSC-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
 
-$font-family: () !default;
-$font-family: map.merge(
-                (
-                  // default family
-                        '':
-                        "'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif"
-                ),
-                $font-family
-);
+@font-face {
+  font-family: 'Source Han Sans SC';
+  src: url('../fonts/source-han-sans-sc/SourceHanSansSC-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
 
-$font-size: () !default;
-$font-size: map.merge(
-                (
-                        'extra-large': 20px,
-                        'large': 18px,
-                        'medium': 16px,
-                        'base': 14px,
-                        'small': 13px,
-                        'extra-small': 12px,
-                ),
-                $font-size
-);
+@font-face {
+  font-family: 'Consolas';
+  src: url('../fonts/CONSOLA.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* 优化字体加载体验 */
+}
+
+@font-face {
+  font-family: 'DIN';
+  src: url('../fonts/DIN-BLACK.OTF') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap; /* 优化字体加载体验 */
+}
+
+$font-styles: (
+        'font-family': 'Source Han Sans SC, sans-serif',
+        'code-font-family': Consolas,
+        'din-font-family': DIN,
+        'font-size-small': 12px,
+        'font-size-base': 14px,
+        'font-size-medium': 16px,
+        'font-size-large': 20px,
+        'font-size-xlarge': 24px,
+        'font-size-xxlarge': 30px,
+        'font-size-xxxlarge': 38px,
+        'line-height-small': 20px,
+        'line-height-base': 22px,
+        'line-height-medium': 24px,
+        'line-height-large': 28px,
+        'line-height-xlarge': 32px,
+        'line-height-xxlarge': 40px,
+        'line-height-xxxlarge': 46px,
+        'font-weight-regular': 400,
+        'font-weight-bold': 700,
+)
+
+
+
+

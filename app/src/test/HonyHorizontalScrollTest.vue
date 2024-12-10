@@ -1,12 +1,12 @@
 <template>
   <hony-horizontal-scroll
-    :scrollFactor="2"
-    :showScrollIndicators="true"
-    :leftArrowIcon="'iconfont icon-custom-left'"
-    :rightArrowIcon="'iconfont icon-custom-right'"
-    :arrowIconSize="30"
-    :arrowIconColor="'red'"
-    :showScrollbar="false"
+    :scroll-factor="2"
+    :show-scroll-indicators="true"
+    :left-arrow-icon="'iconfont icon-custom-left'"
+    :right-arrow-icon="'iconfont icon-custom-right'"
+    :arrow-icon-size="30"
+    :arrow-icon-color="'red'"
+    :show-scrollbar="false"
   >
     <div style="width: 300px; height: 100px; background-color: lightblue">
       Item 1

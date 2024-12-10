@@ -1,0 +1,11 @@
+@use 'sass:map';
+@use 'color-palette' as *;
+
+$text-colors: (
+        'color-text-strong': map.get($color-palette, gray-blue-10),
+        'color-text-regular': map.get($color-palette, gray-blue-9),
+        'color-text-medium': map.get($color-palette, gray-blue-8),
+        'color-text-weaker': map.get($color-palette, gray-blue-7),
+        'color-text-disabled': map.get($color-palette, gray-blue-5),
+        'color-text-inverse': map.get($color-palette, gray-blue-1),
+);

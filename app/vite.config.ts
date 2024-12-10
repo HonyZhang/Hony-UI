@@ -6,6 +6,9 @@ import AutoImport from 'unplugin-auto-import/vite';
 import Inspect from 'vite-plugin-inspect';
 import { fileURLToPath } from 'node:url';
 
+const resolvePath = (relativePath: string) =>
+  fileURLToPath(new URL(relativePath, import.meta.url));
+
 export default defineConfig({
   logLevel: 'info',
   plugins: [
@@ -16,7 +19,7 @@ export default defineConfig({
       open: true,
     }),
     AutoImport({
-      imports: ['vue'],
+      imports: ['vue', '@vueuse/core'],
     }),
     Inspect({
       enabled: true,
@@ -26,7 +29,7 @@ export default defineConfig({
     alias: [
       {
         find: '@',
-        replacement: fileURLToPath(new URL('./src', import.meta.url)),
+        replacement: resolvePath('./src'),
       },
     ],
   },

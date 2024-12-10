@@ -1,0 +1,20 @@
+@use 'sass:map';
+@use 'color-palette' as *;
+
+$semantic-colors: (
+        'color-success-default': map.get($color-palette, green-6),
+        'color-success-hover': map.get($color-palette, green-7),
+        'color-success-active': map.get($color-palette, green-7),
+        'color-success-disabled': map.get($color-palette, green-4),
+        'color-success-light': map.get($color-palette, green-1),
+        'color-warning-default': map.get($color-palette, yellow-6),
+        'color-warning-hover': map.get($color-palette, yellow-7),
+        'color-warning-active': map.get($color-palette, yellow-7),
+        'color-warning-disabled': map.get($color-palette, yellow-4),
+        'color-warning-light': map.get($color-palette, yellow-1),
+        'color-danger-default': map.get($color-palette, red-5),
+        'color-danger-hover': map.get($color-palette, red-6),
+        'color-danger-active': map.get($color-palette, red-6),
+        'color-danger-disabled': map.get($color-palette, red-4),
+        'color-danger-light': map.get($color-palette, red-1),
+);

@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'Source Han Sans SC';
+  src: url('../fonts/SourceHanSansSC-VF.otf.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; // 优化加载体验
+}
+
+@font-face {
+  font-family: 'Consolas';
+  src: url('../fonts/CONSOLA.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* 优化字体加载体验 */
+}
+
+@font-face {
+  font-family: 'DIN';
+  src: url('../fonts/DIN-BLACK.OTF') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap; /* 优化字体加载体验 */
+}
+
+$font-styles: (
+        'font-family': 'Source Han Sans SC, sans-serif',
+        'code-font-family': Consolas,
+        'din-font-family': DIN,
+        'font-size-small': 12px,
+        'font-size-base': 14px,
+        'font-size-medium': 16px,
+        'font-size-large': 20px,
+        'font-size-xlarge': 24px,
+        'font-size-xxlarge': 30px,
+        'font-size-xxxlarge': 38px,
+        'line-height-small': 20px,
+        'line-height-base': 22px,
+        'line-height-medium': 24px,
+        'line-height-large': 28px,
+        'line-height-xlarge': 32px,
+        'line-height-xxlarge': 40px,
+        'line-height-xxxlarge': 46px,
+)
+
+
+
+

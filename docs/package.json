@@ -18,6 +18,9 @@
     "vitepress": "^1.5.0"
   },
   "dependencies": {
+    "@vueuse/core": "^12.0.0",
+    "element-plus": "^2.9.0",
+    "hony-ui": "file:..\\dist\\hony-ui-0.0.6.tgz",
     "vue": "^3.5.10"
   }
 }

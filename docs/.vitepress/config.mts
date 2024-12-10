@@ -1,5 +1,7 @@
 import { defineConfig } from 'vitepress';
 import { fileURLToPath } from 'node:url';
+import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
 
 const resolvePath = (relativePath: string) =>
   fileURLToPath(new URL(relativePath, import.meta.url));
@@ -33,9 +35,11 @@ export default defineConfig({
       {
         text: 'Basic 基础组件',
         items: [
+          { text: 'Color 色彩', link: '/components/color' },
+          { text: 'Layout 布局', link: '/components/layout' },
+          { text: 'Font 字体', link: '/components/font' },
+          { text: 'Icon 图标', link: '/components/icon' },
           { text: '按钮', link: '/components/button' },
-          { text: '暗黑模式', link: '/components/button' },
-          { text: '更新日志', link: '/components/button' },
         ],
       },
     ],
@@ -45,6 +49,16 @@ export default defineConfig({
     ],
   },
   vite: {
+    plugins: [
+      AutoImport({
+        imports: ['vue', '@vueuse/core'],
+      }),
+      Components({
+        dirs: ['../examples/'],
+        extensions: ['vue'],
+        include: [/\.vue$/, /\.vue\?vue/],
+      }),
+    ],
     resolve: {
       alias: {
         'hony-ui/styles': resolvePath('../../packages/styles'),

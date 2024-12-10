@@ -1,0 +1,28 @@
+@use 'sass:map';
+@use '../../../mixins/function' as *;
+
+@use 'gray-blue' as *;
+@use 'gray' as *;
+@use 'red' as *;
+@use 'orange' as *;
+@use 'yellow' as *;
+@use 'green' as *;
+@use 'cyan' as *;
+@use 'sky-blue' as *;
+@use 'blue' as *;
+@use 'purple' as *;
+@use 'pink' as *;
+
+$color-palette: deep-merge-maps(
+                $gray-blue,
+                $gray,
+                $red,
+                $orange,
+                $yellow,
+                $green,
+                $cyan,
+                $sky-blue,
+                $blue,
+                $purple,
+                $pink
+);

@@ -1,0 +1,16 @@
+// CSS3 var
+@use "../mixins/var" as *;
+@use "colors" as *;
+@use "font" as *;
+
+html.dark {
+  color-scheme: dark;
+
+  @each $color, $value in $colors {
+    @include set-css-var-value($color, $value);
+  }
+
+  @each $font, $value in $font-styles {
+    @include set-css-var-value($font, $value);
+  }
+}

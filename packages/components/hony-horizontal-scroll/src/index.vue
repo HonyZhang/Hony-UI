@@ -24,14 +24,14 @@
       </div>
     </div>
     <div
-      class="horizontal-scroll__container"
       ref="scrollContainer"
-      @scroll="handleScroll"
+      class="horizontal-scroll__container"
       :class="{
         'horizontal-scroll__container--hide-scrollbar': !props.showScrollbar,
       }"
+      @scroll="handleScroll"
     >
-      <div class="horizontal-scroll__content" ref="scrollContent">
+      <div ref="scrollContent" class="horizontal-scroll__content">
         <slot></slot>
       </div>
     </div>

@@ -1,6 +1,7 @@
 @use 'config';
 @use 'sass:meta';
 @use "sass:string";
+@use "sass:map";
 
 // BEM support Func
 // 将传入的选择器从 SCSS 内部的对象格式转化为字符串，并移除两端的引号或额外字符。
@@ -79,4 +80,12 @@
 // getCssVarName('button', 'text-color') => '--el-button-text-color'
 @function getCssVarName($args...) {
   @return joinVarName($args);
+}
+
+@function deep-merge-maps($maps...) {
+  $result: ();
+  @each $map in $maps {
+    $result: map.deep-merge($result, $map);
+  }
+  @return $result;
 }

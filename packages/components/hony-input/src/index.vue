@@ -1,7 +1,7 @@
 <template>
   <div>
     <label for="hony-input">{{ label }}</label>
-    <input type="text" id="hony-input" v-model="value" />
+    <input id="hony-input" v-model="value" type="text" />
   </div>
 </template>
 <script setup lang="ts">
