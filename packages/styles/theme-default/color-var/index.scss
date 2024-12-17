@@ -6,13 +6,18 @@
 @use 'border' as *;
 @use 'icon' as *;
 @use 'semantic' as *;
+@use 'color-palette' as *;
 
-
+$colors: (
+        color-transparent:transparent,
+) !default;
 $colors: deep-merge-maps(
+                $colors,
                 $brand-colors,
                 $background-colors,
                 $text-colors,
                 $border-colors,
                 $icon-colors,
-                $semantic-colors
+                $semantic-colors,
+                $color-palette
 );

@@ -5,11 +5,25 @@
     "declaration": true,
     "emitDeclarationOnly": true,
     "outDir": "../dist/types",
-    "tsBuildInfoFile": "../dist/temp/.tsbuildinfo", // 将文件存储在临时目录
-    "types": ["node"],
+    "tsBuildInfoFile": "../dist/temp/.tsbuildinfo",
+    // 将文件存储在临时目录
+    "types": [
+      "vite/client",
+      "node"
+    ],
     "paths": {
-      "@hony-ui/styles/src/*": ["./styles/*"]
+      "@hony-ui/styles/src/*": [
+        "./styles/*"
+      ],
+      "@hony-ui/assets/*": [
+        "./assets/*"
+      ],
+      "@hony-ui/*": [
+        "./*"
+      ]
     }
   },
-  "include": ["**/*"]
+  "include": [
+    "**/*"
+  ]
 }

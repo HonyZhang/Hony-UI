@@ -13,14 +13,6 @@ const install = (app: App) => {
   components.forEach(component => {
     component.install!(app);
   });
-
-  // 创建 link 元素
-  const link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.href = './themes/default/fonts'; // 外链地址
-
-  // 将 link 元素添加到 head
-  document.head.appendChild(link);
 };
 
 export default {

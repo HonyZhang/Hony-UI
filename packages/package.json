@@ -13,10 +13,18 @@
     "library"
   ],
   "scripts": {
-    "build": "vite build"
+    "build": "vite build",
+    "test": "vitest"
   },
   "peerDependencies": {
     "vue": "^3.5.10"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "devDependencies": {
+    "@vitest/coverage-v8": "^2.1.8",
+    "@vue/compiler-sfc": "^3.5.13",
+    "@vue/test-utils": "^2.4.6",
+    "jsdom": "^25.0.1",
+    "vitest": "^2.1.8"
+  }
 }

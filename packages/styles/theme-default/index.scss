@@ -1,6 +1,9 @@
-@use "color-var/index" as *;
+@use 'sass:map';
+@use "colors" as *;
 @use "font" as *;
+@use "border" as *;
 @use '../mixins/var' as *;
+@use '../mixins/function' as *;
 
 :root {
   color-scheme: light;
@@ -12,4 +15,12 @@
   @each $font, $value in $font-styles {
     @include set-css-var-value($font, $value);
   }
+
+  // Border
+  @include set-css-var-value(('border', 'width'), map.get($borders, 'border-width'));
+  @include set-css-var-value(('border','style'), map.get($borders, 'border-style'));
+  @include set-css-var-value(
+                  'border',
+                  getCssVar('border', 'width') getCssVar('border','style') getCssVar('color', 'neutral', '5')
+  );
 }

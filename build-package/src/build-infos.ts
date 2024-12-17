@@ -6,6 +6,6 @@ export const getFiles = async () => {
     cwd: fileURLToPath(new URL('../../packages/', import.meta.url)),
     absolute: true,
     onlyFiles: true,
-    ignore: ['dist/**', 'node_modules/**', '**/*.d.ts'], // 忽略 packages/dist 和 packages/node_modules
+    ignore: ['dist/**', 'node_modules/**', '**/*.d.ts', 'assets/**'], // 忽略 packages/dist 和 packages/node_modules
   });
 };

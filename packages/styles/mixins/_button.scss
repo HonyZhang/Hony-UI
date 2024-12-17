@@ -1,153 +1,7 @@
+@use 'sass:string';
+@use 'sass:map';
 @use 'var' as *;
-@use 'function' as *;
-
-@mixin button-plain($type) {
-  $button-color-types: (
-          '': (
-                  'text-color': (
-                          'color',
-                          $type,
-                  ),
-                  'bg-color': (
-                          'color',
-                          $type,
-                          'light-9',
-                  ),
-                  'border-color': (
-                          'color',
-                          $type,
-                          'light-5',
-                  ),
-          ),
-          'hover': (
-                  'text-color': (
-                          'color',
-                          'white',
-                  ),
-                  'bg-color': (
-                          'color',
-                          $type,
-                  ),
-                  'border-color': (
-                          'color',
-                          $type,
-                  ),
-          ),
-          'active': (
-                  'text-color': (
-                          'color',
-                          'white',
-                  ),
-          ),
-  );
-
-  @each $type, $typeMap in $button-color-types {
-    @each $typeColor, $list in $typeMap {
-      @include css-var-from-global(('button', $type, $typeColor), $list);
-    }
-  }
-
-  &.is-disabled {
-    &,
-    &:hover,
-    &:focus,
-    &:active {
-      color: getCssVar('color', $type, 'light-5');
-      background-color: getCssVar('color', $type, 'light-9');
-      border-color: getCssVar('color', $type, 'light-8');
-    }
-  }
-}
-
-@mixin button-variant($type) {
-  $button-color-types: (
-          '': (
-                  'text-color': (
-                          'color',
-                          'white',
-                  ),
-                  'bg-color': (
-                          'color',
-                          $type,
-                  ),
-                  'border-color': (
-                          'color',
-                          $type,
-                  ),
-                  'outline-color': (
-                          'color',
-                          $type,
-                          'light-5',
-                  ),
-                  'active-color': (
-                          'color',
-                          $type,
-                          'dark-2',
-                  ),
-          ),
-          'hover': (
-                  'text-color': (
-                          'color',
-                          'white',
-                  ),
-                  'link-text-color': (
-                          'color',
-                          $type,
-                          'light-5',
-                  ),
-                  'bg-color': (
-                          'color',
-                          $type,
-                          'light-3',
-                  ),
-                  'border-color': (
-                          'color',
-                          $type,
-                          'light-3',
-                  ),
-          ),
-          'active': (
-                  'bg-color': (
-                          'color',
-                          $type,
-                          'dark-2',
-                  ),
-                  'border-color': (
-                          'color',
-                          $type,
-                          'dark-2',
-                  ),
-          ),
-          'disabled': (
-                  'text-color': (
-                          'color',
-                          'white',
-                  ),
-                  'bg-color': (
-                          'color',
-                          $type,
-                          'light-5',
-                  ),
-                  'border-color': (
-                          'color',
-                          $type,
-                          'light-5',
-                  ),
-          ),
-  );
-
-  @each $type, $typeMap in $button-color-types {
-    @each $typeColor, $list in $typeMap {
-      @include css-var-from-global(('button', $type, $typeColor), $list);
-    }
-  }
-
-  &.is-plain,
-  &.is-text,
-  &.is-link {
-    @include button-plain($type);
-  }
-}
+@use 'mixins' as *;
 
 @mixin button-size(
   $padding-vertical,
@@ -160,5 +14,110 @@
   border-radius: $border-radius;
   &.is-round {
     padding: $padding-vertical $padding-horizontal;
+  }
+}
+
+@mixin set-color($button-state-colors, $status, $type, $state) {
+  // 从映射中获取所需颜色值并存储
+  $text-color: map.get($button-state-colors, 'text-color');
+  $bg-color: map.get($button-state-colors, 'bg-color');
+  $border-color: map.get($button-state-colors, 'border-color');
+
+  // 设置 css 变量
+  @include set-css-var-value(('button', $status, $type, $state, 'text-color'), $text-color);
+  @include set-css-var-value(('button', $status, $type, $state, 'bg-color'), $bg-color);
+  @include set-css-var-value(('button', $status, $type, $state, 'border-color'), $border-color);
+
+  $border-width: 0px;
+  @if $type == 'secondary' or $type == 'tertiary' {
+    $border-width: 1px;
+  }
+  $border-style: getCssVar('button', 'border-style');
+
+  // 使用存储的变量构建样式
+  color: getCssVar('button', $status, $type, $state, 'text-color');
+  background-color: getCssVar('button', $status, $type, $state, 'bg-color');
+  border: #{$border-width} #{$border-style} #{getCssVar('button', $status, $type, $state, 'border-color')};
+}
+
+@mixin set-state-color($button-type-colors, $status, $type) {
+  @each $state, $value in $button-type-colors {
+    @if ($state == 'loading' or $state == 'disabled') {
+      @include when($state) {
+        @include set-color($value, $status, $type, $state);
+      }
+    } @else if ($state == 'hover' or $state == 'active') {
+      &:#{$state} {
+        @include set-color($value, $status, $type, $state);
+      }
+    } @else {
+      & {
+        @include set-color($value, $status, $type, $state);
+      }
+    };
+  }
+}
+
+@mixin set-type-color($button-status-colors, $status) {
+  @each $type, $value in $button-status-colors {
+    @if $type == '' {
+      & {
+        @include set-state-color($value, $status, $type);
+      }
+    } @else {
+      @include when($type) {
+        @include set-state-color($value, $status, $type);
+      }
+    }
+  }
+}
+
+@mixin set-button-color($button-colors) {
+  @each $status, $value in $button-colors {
+    @if $status == '' {
+      & {
+        @include set-type-color($value, $status);
+      }
+    } @else {
+      @include m($status) {
+        @include set-type-color($value, $status);
+      }
+    }
+  }
+}
+
+@mixin set-size($button-size, $size) {
+  $font-size: map.get($button-size, 'font-size');
+  $line-height: map.get($button-size, 'line-height');
+  $height: map.get($button-size, 'height');
+  $padding: map.get($button-size, 'padding');
+  $border-radius: map.get($button-size, 'border-radius');
+
+  // 使用存储的变量构建样式
+  font-size: getCssVar('button', $size, 'font-size');
+  line-height: getCssVar('button', $size, 'line-height');
+  height: getCssVar('button', $size, 'height');
+  padding: getCssVar('button', $size, 'padding');
+  border-radius: getCssVar('button', $size, 'border-radius');
+
+  // 设置 css 变量
+  @include set-css-var-value(('button', $size, 'font-size'), $font-size);
+  @include set-css-var-value(('button', $size, 'line-height'), $line-height);
+  @include set-css-var-value(('button', $size, 'height'), $height);
+  @include set-css-var-value(('button', $size, 'padding'), $padding);
+  @include set-css-var-value(('button', $size, 'border-radius'), $border-radius);
+}
+
+@mixin set-button-size($button-sizes) {
+  @each $size, $value in $button-sizes {
+    @if $size == '' {
+      & {
+        @include set-size($value, $size);
+      }
+    } @else {
+      @include m($size) {
+        @include set-size($value, $size);
+      }
+    }
   }
 }

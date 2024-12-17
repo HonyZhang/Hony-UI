@@ -1,10 +1,12 @@
-@use 'sass:map';
-@use 'color-palette' as *;
-
-$brand-colors: (
-        'color-primary': map.get($color-palette, blue-6),
-        'color-primary-hover': map.get($color-palette, blue-7),
-        'color-primary-active': map.get($color-palette, blue-7),
-        'color-primary-disabled': map.get($color-palette, blue-4),
-        'color-primary-light': map.get($color-palette, blue-1),
-)
+$color-brand: (
+        'color-brand-1': #0A0F77,
+        'color-brand-2': #1A25A1,
+        'color-brand-3': #3244CC,
+        'color-brand-4': #506AF6,
+        'color-brand-5': #6F86FF,
+        'color-brand-6': #8498FF,
+        'color-brand-7': #9BABFF,
+        'color-brand-8': #C5CFFF,
+        'color-brand-9': #E2E7FF,
+        'color-brand-10': #F1F3FF,
+);

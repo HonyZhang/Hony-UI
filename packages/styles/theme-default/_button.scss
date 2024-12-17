@@ -1,0 +1,604 @@
+@use 'sass:map';
+@use '../mixins/function' as *;
+
+$button: (
+        font-weight: getCssVar('font-weight', 'regular'),
+        border-width: 0px,
+        border-style: solid,
+) !default;
+
+$button-colors: (
+        '': (
+                '': (
+                        '':(
+                                text-color: getCssVar('color', 'neutral', '1'),
+                                bg-color: getCssVar('color', 'brand', '6'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'hover':(
+                                text-color: getCssVar('color', 'neutral', '1'),
+                                bg-color: getCssVar('color', 'brand', '5'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'active':(
+                                text-color: getCssVar('color', 'neutral', '1'),
+                                bg-color: getCssVar('color', 'brand', '7'),
+                                border-color: getCssVar('color', 'transparent'),),
+                        'loading':(
+                                text-color: getCssVar('color', 'neutral', '1'),
+                                bg-color: getCssVar('color', 'brand', '5'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'disabled':(
+                                text-color: getCssVar('color', 'neutral', '1'),
+                                bg-color: getCssVar('color', 'brand', '4'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                ),
+                'secondary': (
+                        '':(
+                                text-color: getCssVar('color', 'brand', '6'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'brand', '6'),
+                        ),
+                        'hover':(
+                                text-color: getCssVar('color', 'brand', '6'),
+                                bg-color: getCssVar('color', 'brand', '1'),
+                                border-color: getCssVar('color', 'brand', '5'),
+                        ),
+                        'active':(
+                                text-color: getCssVar('color', 'brand', '6'),
+                                bg-color: getCssVar('color', 'brand', '2'),
+                                border-color: getCssVar('color', 'brand', '7'),
+                        ),
+                        'loading':(
+                                text-color: getCssVar('color', 'brand', '5'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'brand', '5'),
+                        ),
+                        'disabled':(
+                                text-color: getCssVar('color', 'brand', '4'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'brand', '4'),
+                        ),
+                ),
+                'tertiary': (
+                        '':(
+                                text-color: getCssVar('color', 'neutral', '10'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'neutral', '5'),
+                        ),
+                        'hover':(
+                                text-color: getCssVar('color', 'neutral', '10'),
+                                bg-color: getCssVar('color', 'neutral', '3'),
+                                border-color: getCssVar('color', 'neutral', '5'),
+                        ),
+                        'active':(
+                                text-color: getCssVar('color', 'neutral', '10'),
+                                bg-color: getCssVar('color', 'neutral', '4'),
+                                border-color: getCssVar('color', 'neutral', '5'),
+                        ),
+                        'loading':(
+                                text-color: getCssVar('color', 'neutral', '7'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'neutral', '7'),
+                        ),
+                        'disabled':(
+                                text-color: getCssVar('color', 'neutral', '6'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'neutral', '6'),
+                        ),
+                ),
+                'text': (
+                        '':(
+                                text-color: getCssVar('color', 'neutral', '10'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'hover':(
+                                text-color: getCssVar('color', 'neutral', '10'),
+                                bg-color: getCssVar('color', 'neutral', '3'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'active':(
+                                text-color: getCssVar('color', 'neutral', '10'),
+                                bg-color: getCssVar('color', 'neutral', '4'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'loading':(
+                                text-color: getCssVar('color', 'neutral', '7'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'disabled':(
+                                text-color: getCssVar('color', 'neutral', '6'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                ),
+                'link': (
+                        '':(
+                                text-color: getCssVar('color', 'brand', '6'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'hover':(
+                                text-color: getCssVar('color', 'brand', '6'),
+                                bg-color: getCssVar('color', 'brand', '1'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'active':(
+                                text-color: getCssVar('color', 'brand', '6'),
+                                bg-color: getCssVar('color', 'brand', '2'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'loading':(
+                                text-color: getCssVar('color', 'brand', '5'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'disabled':(
+                                text-color: getCssVar('color', 'brand', '4'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                ),
+        ),
+        'success': (
+                '': (
+                        '':(
+                                text-color: getCssVar('color', 'neutral', '1'),
+                                bg-color: getCssVar('color', 'success', '6'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'hover':(
+                                text-color: getCssVar('color', 'neutral', '1'),
+                                bg-color: getCssVar('color', 'success', '5'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'active':(
+                                text-color: getCssVar('color', 'neutral', '1'),
+                                bg-color: getCssVar('color', 'success', '7'),
+                                border-color: getCssVar('color', 'transparent'),),
+                        'loading':(
+                                text-color: getCssVar('color', 'neutral', '1'),
+                                bg-color: getCssVar('color', 'success', '5'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'disabled':(
+                                text-color: getCssVar('color', 'neutral', '1'),
+                                bg-color: getCssVar('color', 'success', '4'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                ),
+                'secondary': (
+                        '':(
+                                text-color: getCssVar('color', 'success', '6'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'success', '6'),
+                        ),
+                        'hover':(
+                                text-color: getCssVar('color', 'success', '6'),
+                                bg-color: getCssVar('color', 'success', '1'),
+                                border-color: getCssVar('color', 'success', '5'),
+                        ),
+                        'active':(
+                                text-color: getCssVar('color', 'success', '6'),
+                                bg-color: getCssVar('color', 'success', '2'),
+                                border-color: getCssVar('color', 'success', '7'),
+                        ),
+                        'loading':(
+                                text-color: getCssVar('color', 'success', '5'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'success', '5'),
+                        ),
+                        'disabled':(
+                                text-color: getCssVar('color', 'success', '4'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'success', '4'),
+                        ),
+                ),
+                'tertiary': (
+                        '':(
+                                text-color: getCssVar('color', 'neutral', '10'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'neutral', '5'),
+                        ),
+                        'hover':(
+                                text-color: getCssVar('color', 'neutral', '10'),
+                                bg-color: getCssVar('color', 'neutral', '3'),
+                                border-color: getCssVar('color', 'neutral', '5'),
+                        ),
+                        'active':(
+                                text-color: getCssVar('color', 'neutral', '10'),
+                                bg-color: getCssVar('color', 'neutral', '4'),
+                                border-color: getCssVar('color', 'neutral', '5'),
+                        ),
+                        'loading':(
+                                text-color: getCssVar('color', 'neutral', '7'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'neutral', '7'),
+                        ),
+                        'disabled':(
+                                text-color: getCssVar('color', 'neutral', '6'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'neutral', '6'),
+                        ),
+                ),
+                'text': (
+                        '':(
+                                text-color: getCssVar('color', 'neutral', '10'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'hover':(
+                                text-color: getCssVar('color', 'neutral', '10'),
+                                bg-color: getCssVar('color', 'neutral', '3'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'active':(
+                                text-color: getCssVar('color', 'neutral', '10'),
+                                bg-color: getCssVar('color', 'neutral', '4'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'loading':(
+                                text-color: getCssVar('color', 'neutral', '7'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'disabled':(
+                                text-color: getCssVar('color', 'neutral', '6'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                ),
+                'link': (
+                        '':(
+                                text-color: getCssVar('color', 'success', '6'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'hover':(
+                                text-color: getCssVar('color', 'success', '6'),
+                                bg-color: getCssVar('color', 'success', '1'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'active':(
+                                text-color: getCssVar('color', 'success', '6'),
+                                bg-color: getCssVar('color', 'success', '2'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'loading':(
+                                text-color: getCssVar('color', 'success', '5'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'disabled':(
+                                text-color: getCssVar('color', 'success', '4'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                ),
+        ),
+        'warning':(
+                '': (
+                        '':(
+                                text-color: getCssVar('color', 'neutral', '1'),
+                                bg-color: getCssVar('color', 'warning', '6'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'hover':(
+                                text-color: getCssVar('color', 'neutral', '1'),
+                                bg-color: getCssVar('color', 'warning', '5'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'active':(
+                                text-color: getCssVar('color', 'neutral', '1'),
+                                bg-color: getCssVar('color', 'warning', '7'),
+                                border-color: getCssVar('color', 'transparent'),),
+                        'loading':(
+                                text-color: getCssVar('color', 'neutral', '1'),
+                                bg-color: getCssVar('color', 'warning', '5'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'disabled':(
+                                text-color: getCssVar('color', 'neutral', '1'),
+                                bg-color: getCssVar('color', 'warning', '4'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                ),
+                'secondary': (
+                        '':(
+                                text-color: getCssVar('color', 'warning', '6'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'warning', '6'),
+                        ),
+                        'hover':(
+                                text-color: getCssVar('color', 'warning', '6'),
+                                bg-color: getCssVar('color', 'warning', '1'),
+                                border-color: getCssVar('color', 'warning', '5'),
+                        ),
+                        'active':(
+                                text-color: getCssVar('color', 'warning', '6'),
+                                bg-color: getCssVar('color', 'warning', '2'),
+                                border-color: getCssVar('color', 'warning', '7'),
+                        ),
+                        'loading':(
+                                text-color: getCssVar('color', 'warning', '5'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'warning', '5'),
+                        ),
+                        'disabled':(
+                                text-color: getCssVar('color', 'warning', '4'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'warning', '4'),
+                        ),
+                ),
+                'tertiary': (
+                        '':(
+                                text-color: getCssVar('color', 'neutral', '10'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'neutral', '5'),
+                        ),
+                        'hover':(
+                                text-color: getCssVar('color', 'neutral', '10'),
+                                bg-color: getCssVar('color', 'neutral', '3'),
+                                border-color: getCssVar('color', 'neutral', '5'),
+                        ),
+                        'active':(
+                                text-color: getCssVar('color', 'neutral', '10'),
+                                bg-color: getCssVar('color', 'neutral', '4'),
+                                border-color: getCssVar('color', 'neutral', '5'),
+                        ),
+                        'loading':(
+                                text-color: getCssVar('color', 'neutral', '7'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'neutral', '7'),
+                        ),
+                        'disabled':(
+                                text-color: getCssVar('color', 'neutral', '6'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'neutral', '6'),
+                        ),
+                ),
+                'text': (
+                        '':(
+                                text-color: getCssVar('color', 'neutral', '10'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'hover':(
+                                text-color: getCssVar('color', 'neutral', '10'),
+                                bg-color: getCssVar('color', 'neutral', '3'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'active':(
+                                text-color: getCssVar('color', 'neutral', '10'),
+                                bg-color: getCssVar('color', 'neutral', '4'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'loading':(
+                                text-color: getCssVar('color', 'neutral', '7'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'disabled':(
+                                text-color: getCssVar('color', 'neutral', '6'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                ),
+                'link': (
+                        '':(
+                                text-color: getCssVar('color', 'warning', '6'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'hover':(
+                                text-color: getCssVar('color', 'warning', '6'),
+                                bg-color: getCssVar('color', 'warning', '1'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'active':(
+                                text-color: getCssVar('color', 'warning', '6'),
+                                bg-color: getCssVar('color', 'warning', '2'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'loading':(
+                                text-color: getCssVar('color', 'warning', '5'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'disabled':(
+                                text-color: getCssVar('color', 'warning', '4'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                ),
+        ),
+        'danger':(
+                '': (
+                        '':(
+                                text-color: getCssVar('color', 'neutral', '1'),
+                                bg-color: getCssVar('color', 'danger', '6'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'hover':(
+                                text-color: getCssVar('color', 'neutral', '1'),
+                                bg-color: getCssVar('color', 'danger', '5'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'active':(
+                                text-color: getCssVar('color', 'neutral', '1'),
+                                bg-color: getCssVar('color', 'danger', '7'),
+                                border-color: getCssVar('color', 'transparent'),),
+                        'loading':(
+                                text-color: getCssVar('color', 'neutral', '1'),
+                                bg-color: getCssVar('color', 'danger', '5'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'disabled':(
+                                text-color: getCssVar('color', 'neutral', '1'),
+                                bg-color: getCssVar('color', 'danger', '4'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                ),
+                'secondary': (
+                        '':(
+                                text-color: getCssVar('color', 'danger', '6'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'danger', '6'),
+                        ),
+                        'hover':(
+                                text-color: getCssVar('color', 'danger', '6'),
+                                bg-color: getCssVar('color', 'danger', '1'),
+                                border-color: getCssVar('color', 'danger', '5'),
+                        ),
+                        'active':(
+                                text-color: getCssVar('color', 'danger', '6'),
+                                bg-color: getCssVar('color', 'danger', '2'),
+                                border-color: getCssVar('color', 'danger', '7'),
+                        ),
+                        'loading':(
+                                text-color: getCssVar('color', 'danger', '5'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'danger', '5'),
+                        ),
+                        'disabled':(
+                                text-color: getCssVar('color', 'danger', '4'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'danger', '4'),
+                        ),
+                ),
+                'tertiary': (
+                        '':(
+                                text-color: getCssVar('color', 'neutral', '10'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'neutral', '5'),
+                        ),
+                        'hover':(
+                                text-color: getCssVar('color', 'neutral', '10'),
+                                bg-color: getCssVar('color', 'neutral', '3'),
+                                border-color: getCssVar('color', 'neutral', '5'),
+                        ),
+                        'active':(
+                                text-color: getCssVar('color', 'neutral', '10'),
+                                bg-color: getCssVar('color', 'neutral', '4'),
+                                border-color: getCssVar('color', 'neutral', '5'),
+                        ),
+                        'loading':(
+                                text-color: getCssVar('color', 'neutral', '7'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'neutral', '7'),
+                        ),
+                        'disabled':(
+                                text-color: getCssVar('color', 'neutral', '6'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'neutral', '6'),
+                        ),
+                ),
+                'text': (
+                        '':(
+                                text-color: getCssVar('color', 'neutral', '10'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'hover':(
+                                text-color: getCssVar('color', 'neutral', '10'),
+                                bg-color: getCssVar('color', 'neutral', '3'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'active':(
+                                text-color: getCssVar('color', 'neutral', '10'),
+                                bg-color: getCssVar('color', 'neutral', '4'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'loading':(
+                                text-color: getCssVar('color', 'neutral', '7'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'disabled':(
+                                text-color: getCssVar('color', 'neutral', '6'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                ),
+                'link': (
+                        '':(
+                                text-color: getCssVar('color', 'danger', '6'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'hover':(
+                                text-color: getCssVar('color', 'danger', '6'),
+                                bg-color: getCssVar('color', 'danger', '1'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'active':(
+                                text-color: getCssVar('color', 'danger', '6'),
+                                bg-color: getCssVar('color', 'danger', '2'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'loading':(
+                                text-color: getCssVar('color', 'danger', '5'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                        'disabled':(
+                                text-color: getCssVar('color', 'danger', '4'),
+                                bg-color: getCssVar('color', 'transparent'),
+                                border-color: getCssVar('color', 'transparent'),
+                        ),
+                ),
+        ),
+);
+
+$button: map.deep-merge(
+                $button,
+                map.get(map.get(map.get($button-colors, ''), ''), ''),
+);
+
+
+$button-font-size: (
+        'small': getCssVar('font-size', 'small'),
+        'default': getCssVar('font-size', 'base'),
+        'large': getCssVar('font-size', 'medium'),
+);
+
+$button-padding-vertical: (
+        'small': 2px,
+        'default': 4px,
+        'large': 8px,
+);
+
+
+$button-padding-horizontal: (
+        'small': 8px,
+        'default': 16px,
+        'large': 16px,
+);
+
+$button-sizes: (
+        '': (
+                'font-size': getCssVar('font', 'size', 'base'),
+                'line-height': getCssVar('line-height', 'base'),
+                'height': 32px,
+                'padding': 8px 16px,
+                'border-radius': 4px,
+        ),
+        'small': (
+                'font-size': getCssVar('font', 'size', 'small'),
+                'line-height': getCssVar('line-height', 'small'),
+                'height': 24px,
+                'padding': 2px 8px,
+                'border-radius': 4px,
+        ),
+        'large': (
+                'font-size': getCssVar('font', 'size', 'large'),
+                'line-height': getCssVar('line-height', 'large'),
+                'height': 40px,
+                'padding': 4px 16px,
+                'border-radius': 4px,
+        ),
+);

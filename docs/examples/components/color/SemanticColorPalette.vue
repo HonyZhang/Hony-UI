@@ -1,89 +1,144 @@
 <script lang="ts" setup>
 import ColorCard from './ColorCard.vue';
+import { ref } from 'vue';
 
 defineOptions({ name: 'SemanticColorPalette' });
 
-const successColors = ref([
+const successColors = ref<{ var: string; fontVar: string; desc?: string }[]>([
   {
-    var: 'success-default',
-    desc: '页面中表示成功的背景颜色、链接字体default颜色',
-    fontVar: 'text-regular',
+    var: 'success-1',
+    fontVar: 'neutral-10',
   },
   {
-    var: 'success-hover',
-    desc: '页面中表示成功的背景颜色、链接字体hover颜色',
-    fontVar: 'text-inverse',
+    var: 'success-2',
+    fontVar: 'neutral-10',
   },
   {
-    var: 'success-active',
-    desc: '页面中表示成功的背景颜色、链接字体active颜色',
-    fontVar: 'text-inverse',
+    var: 'success-3',
+    fontVar: 'neutral-10',
   },
   {
-    var: 'success-disabled',
-    desc: '页面中表示成功的背景颜色、链接字体disabled颜色',
-    fontVar: 'text-regular',
+    var: 'success-4',
+    fontVar: 'neutral-10',
   },
   {
-    var: 'success-light',
-    desc: '页面中次级表示成功的着色、toast、info、tag等背景填充色',
-    fontVar: 'text-regular',
-  },
-]);
-
-const warningColors = ref([
-  {
-    var: 'warning-default',
-    desc: '页面中表示警示的背景颜色、链接字体default颜色',
-    fontVar: 'text-regular',
+    var: 'success-5',
+    fontVar: 'neutral-10',
+    desc: 'hover',
   },
   {
-    var: 'warning-hover',
-    desc: '页面中表示警示的背景颜色、链接字体hover颜色',
-    fontVar: 'text-inverse',
+    var: 'success-6',
+    fontVar: 'neutral-2',
+    desc: 'primary',
   },
   {
-    var: 'warning-active',
-    desc: '页面中表示警示的背景颜色、链接字体active颜色',
-    fontVar: 'text-inverse',
+    var: 'success-7',
+    fontVar: 'neutral-2',
+    desc: 'active',
   },
   {
-    var: 'warning-disabled',
-    desc: '页面中表示警示的背景颜色、链接字体disabled颜色',
-    fontVar: 'text-regular',
+    var: 'success-8',
+    fontVar: 'neutral-2',
   },
   {
-    var: 'warning-light',
-    desc: '页面中次级表示警示的着色、toast、info、tag等背景填充色',
-    fontVar: 'text-regular',
+    var: 'success-9',
+    fontVar: 'neutral-2',
+  },
+  {
+    var: 'success-10',
+    fontVar: 'neutral-2',
   },
 ]);
 
-const dangerColors = ref([
+const warningColors = ref<{ var: string; fontVar: string; desc?: string }[]>([
   {
-    var: 'danger-default',
-    desc: '页面中表示危险、失败的背景颜色、链接字体default颜色',
-    fontVar: 'text-regular',
+    var: 'warning-1',
+    fontVar: 'neutral-10',
   },
   {
-    var: 'danger-hover',
-    desc: '页面中表示危险、失败的背景颜色、链接字体hover颜色',
-    fontVar: 'text-regular',
+    var: 'warning-2',
+    fontVar: 'neutral-10',
   },
   {
-    var: 'danger-active',
-    desc: '页面中表示危险、失败的背景颜色、链接字体active颜色',
-    fontVar: 'text-regular',
+    var: 'warning-3',
+    fontVar: 'neutral-10',
   },
   {
-    var: 'danger-disabled',
-    desc: '页面中表示危险、失败的背景颜色、链接字体disabled颜色',
-    fontVar: 'text-regular',
+    var: 'warning-4',
+    fontVar: 'neutral-10',
   },
   {
-    var: 'danger-light',
-    desc: '页面中次级表示危险、失败的着色、toast、info、tag等背景填充色',
-    fontVar: 'text-regular',
+    var: 'warning-5',
+    fontVar: 'neutral-10',
+    desc: 'hover',
+  },
+  {
+    var: 'warning-6',
+    fontVar: 'neutral-2',
+    desc: 'primary',
+  },
+  {
+    var: 'warning-7',
+    fontVar: 'neutral-2',
+    desc: 'active',
+  },
+  {
+    var: 'warning-8',
+    fontVar: 'neutral-2',
+  },
+  {
+    var: 'warning-9',
+    fontVar: 'neutral-2',
+  },
+  {
+    var: 'warning-10',
+    fontVar: 'neutral-2',
+  },
+]);
+
+const dangerColors = ref<{ var: string; fontVar: string; desc?: string }[]>([
+  {
+    var: 'danger-1',
+    fontVar: 'neutral-10',
+  },
+  {
+    var: 'danger-2',
+    fontVar: 'neutral-10',
+  },
+  {
+    var: 'danger-3',
+    fontVar: 'neutral-10',
+  },
+  {
+    var: 'danger-4',
+    fontVar: 'neutral-10',
+  },
+  {
+    var: 'danger-5',
+    fontVar: 'neutral-10',
+    desc: 'hover',
+  },
+  {
+    var: 'danger-6',
+    fontVar: 'neutral-2',
+    desc: 'primary',
+  },
+  {
+    var: 'danger-7',
+    fontVar: 'neutral-2',
+    desc: 'active',
+  },
+  {
+    var: 'danger-8',
+    fontVar: 'neutral-2',
+  },
+  {
+    var: 'danger-9',
+    fontVar: 'neutral-2',
+  },
+  {
+    var: 'danger-10',
+    fontVar: 'neutral-2',
   },
 ]);
 </script>

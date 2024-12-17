@@ -1,33 +1,54 @@
 <script lang="ts" setup>
 import ColorCard from './ColorCard.vue';
+import { ref } from 'vue';
 
 defineOptions({ name: 'BrandColorPalette' });
 
-const colors = ref([
+const colors = ref<{ var: string; fontVar: string; desc?: string }[]>([
   {
-    var: 'primary',
-    desc: '主按钮背景色、边框色、链接字体颜色',
-    fontVar: 'text-inverse',
+    var: 'brand-1',
+    fontVar: 'neutral-10',
+    desc: 'bg-container-active',
   },
   {
-    var: 'primary-hover',
-    desc: '主按钮背景、边框色、链接字体的Hover颜色',
-    fontVar: 'text-inverse',
+    var: 'brand-2',
+    fontVar: 'neutral-10',
   },
   {
-    var: 'primary-active',
-    desc: '主按钮背景、边框色、链接字体的激活颜色',
-    fontVar: 'text-inverse',
+    var: 'brand-3',
+    fontVar: 'neutral-10',
   },
   {
-    var: 'primary-disabled',
-    desc: '主按钮背景、边框色、链接字体的禁用颜色',
-    fontVar: 'text-inverse',
+    var: 'brand-4',
+    fontVar: 'neutral-10',
+    desc: 'disabled',
   },
   {
-    var: 'primary-light',
-    desc: '次级品牌着色，按钮、tag等背景填充色',
-    fontVar: 'text-regular',
+    var: 'brand-5',
+    fontVar: 'neutral-10',
+    desc: 'hover',
+  },
+  {
+    var: 'brand-6',
+    fontVar: 'neutral-2',
+    desc: 'primary',
+  },
+  {
+    var: 'brand-7',
+    fontVar: 'neutral-2',
+    desc: 'active',
+  },
+  {
+    var: 'brand-8',
+    fontVar: 'neutral-2',
+  },
+  {
+    var: 'brand-9',
+    fontVar: 'neutral-2',
+  },
+  {
+    var: 'brand-10',
+    fontVar: 'neutral-2',
   },
 ]);
 </script>

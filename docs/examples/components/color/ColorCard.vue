@@ -16,12 +16,12 @@
         <div class="color-card__var-name">
           {{ color.var }}
         </div>
+        <div class="color-card__var-desc">
+          {{ color.desc }}
+        </div>
         <div v-if="showValue" class="color-card__var-value">
           {{ useCssVar(`--hony-color-${color.var}`) }}
         </div>
-      </div>
-      <div class="color-card__var-desc">
-        {{ color.desc }}
       </div>
     </div>
   </div>
@@ -36,7 +36,7 @@ defineOptions({ name: 'ColorCard' });
 
 // 接收外部传入的颜色列表
 defineProps<{
-  colors: { var: string; desc: string; fontVar: string }[];
+  colors: { var: string; desc?: string; fontVar: string }[];
 }>();
 
 // 控制是否显示颜色值
@@ -60,7 +60,7 @@ const { copyColor } = useCopyColor();
 
   &__item {
     width: 100%;
-    height: 100px;
+    height: 40px;
     position: relative;
     cursor: pointer;
     transition: width 0.3s ease;
@@ -68,7 +68,7 @@ const { copyColor } = useCopyColor();
     align-items: flex-start;
     flex-direction: column;
     font-size: 14px;
-    border: 1px solid var(--hony-color-border-regular);
+    border: 1px solid var(--hony-color-neutral-5);
 
     &:hover {
       width: calc(100% + 16px);
@@ -91,7 +91,6 @@ const { copyColor } = useCopyColor();
   }
 
   &__var-desc {
-    margin-top: 8px;
     margin-left: 16px;
   }
 }

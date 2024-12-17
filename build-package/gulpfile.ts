@@ -33,6 +33,8 @@ const paths = {
   buildTypesScript: 'src/tasks/build-types.js',
   globalTypeSrc: '../packages/global.d.ts',
   globalTypeDest: '../dist/global.d.ts',
+  assetsSrc: '../packages/assets/**/*',
+  assetsDest: '../dist/assets',
 };
 
 // 通用控制台输出函数
@@ -152,6 +154,10 @@ task('copy-global-types', () =>
   copyFiles(paths.globalTypeSrc, [paths.rootDist], '全局类型文件复制')
 );
 
+task('copy-assets', () =>
+  copyFiles(paths.assetsSrc, [paths.assetsDest], '静态资源文件复制')
+);
+
 // 注册默认任务
 task(
   'default',
@@ -159,6 +165,7 @@ task(
     'clean-dist',
     parallel(buildMultiModules, buildAll, 'build-types'),
     parallel(modifyPackageJson, 'copy-global-types'),
-    parallel(copyStyles, buildThemeDefault, buildDarkCssVars)
+    parallel(copyStyles, buildThemeDefault, buildDarkCssVars),
+    'copy-assets'
   )
 );

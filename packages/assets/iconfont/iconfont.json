@@ -1,0 +1,16 @@
+{
+  "id": "4778502",
+  "name": "Hony UI",
+  "font_family": "hony-iconfont",
+  "css_prefix_text": "hony-icon-",
+  "description": "自定义组件库图标",
+  "glyphs": [
+    {
+      "icon_id": "42772938",
+      "name": "loading-line",
+      "font_class": "Loading-Line",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    }
+  ]
+}

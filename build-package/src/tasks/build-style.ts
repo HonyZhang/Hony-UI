@@ -18,14 +18,15 @@ export const buildThemeDefault = () => {
 export function buildDarkCssVars() {
   return src(
     fileURLToPath(
-      new URL(
-        '../../../packages/styles/theme-dark/css-var.scss',
-        import.meta.url
-      )
+      new URL('../../../packages/styles/theme-dark/index.scss', import.meta.url)
     )
   )
     .pipe(sass.sync().on('error', sass.logError)) // Add error logging here
     .pipe(
-      dest(fileURLToPath(new URL('../../../dist/styles/dark', import.meta.url)))
+      dest(
+        fileURLToPath(
+          new URL('../../../dist/styles/theme-dark', import.meta.url)
+        )
+      )
     );
 }

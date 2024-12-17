@@ -1,7 +1,9 @@
 // CSS3 var
 @use "../mixins/var" as *;
+@use "../mixins/mixins" as *;
 @use "colors" as *;
 @use "font" as *;
+@use "button" as *;
 
 html.dark {
   color-scheme: dark;
@@ -13,4 +15,8 @@ html.dark {
   @each $font, $value in $font-styles {
     @include set-css-var-value($font, $value);
   }
+}
+
+@include dark(button) {
+  @include set-component-css-var('button', $button);
 }

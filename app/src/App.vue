@@ -1,10 +1,12 @@
 <template>
   <div id="app">
-    <!--    <hony-button-test />-->
+    <hony-button-test />
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import HonyButtonTest from '@/test/HonyButtonTest.vue';
+</script>
 
 <style>
 /* 全局样式 */

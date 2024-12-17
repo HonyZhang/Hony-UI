@@ -22,7 +22,7 @@ title: Icon
 ## 图标使用方式：
 
 ```html
-<i class="iconfont icon-xxx"></i>
+<i class="hony-iconfont hony-icon-xxx"></i>
 ```
 
 图标库：

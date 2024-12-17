@@ -6,6 +6,7 @@
     "baseUrl": ".",
     "paths": {
       "hony-ui": ["../packages/index.ts"],
+      "@hony-ui/*": ["../packages/*"],
       "hony-ui/styles/*": ["../packages/styles/*"]
     }
   },

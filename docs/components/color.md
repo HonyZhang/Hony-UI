@@ -22,36 +22,10 @@ Hony UI 为了避免视觉传达差异，使用一套特定的调色板来规定
 <SemanticColorPalette />
 </ClientOnly>
 
-## 背景色
+## 自然色
 
-它常常作为页面或者容器的背景色使用。
-
-<ClientOnly>
-<BgColorPalette />
-</ClientOnly>
-
-## 字体颜色
-
-用于界面中文字的颜色使用
+它常常作为页面或者容器的背景色，字体颜色，边框颜色等使用。
 
 <ClientOnly>
-<TextColorPalette />
-</ClientOnly>
-
-## 边框颜色
-
-用于界面中文字的颜色使用
-
-<ClientOnly>
-<BorderColorPalette />
-</ClientOnly>
-
-## 图标颜色
-
-规定图标（Icon）的颜色应用。
-
-若图标与文字共同呈现时，图标颜色的调整应**与文字颜色保持一致性**。
-
-<ClientOnly>
-<IconColorPalette />
+<NeutralColorPalette />
 </ClientOnly>

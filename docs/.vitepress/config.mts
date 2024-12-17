@@ -60,10 +60,24 @@ export default defineConfig({
       }),
     ],
     resolve: {
-      alias: {
-        'hony-ui/styles': resolvePath('../../packages/styles'),
-        'hony-ui': resolvePath('../../packages/index.ts'),
-      },
+      alias: [
+        {
+          find: /^@hony-ui\/styles\/src/,
+          replacement: resolvePath('../../packages/styles'),
+        },
+        {
+          find: /^@hony-ui\/assets/,
+          replacement: resolvePath('../../packages/assets'),
+        },
+        {
+          find: /^@hony-ui/,
+          replacement: resolvePath('../../packages'),
+        },
+        {
+          find: '@',
+          replacement: resolvePath('./src'),
+        },
+      ],
     },
   },
 });

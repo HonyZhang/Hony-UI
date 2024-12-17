@@ -1,0 +1,70 @@
+@use 'sass:map';
+@use 'base';
+@use 'theme-default/button' as *;
+@use 'mixins/mixins' as *;
+@use 'mixins/button' as *;
+@use 'mixins/var' as *;
+
+@include b(button) {
+  @include set-component-css-var('button', $button);
+}
+
+@include b(button) {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  white-space: nowrap;
+  cursor: pointer;
+  text-align: center;
+  box-sizing: border-box;
+  transition: 0.1s;
+  font-weight: getCssVar('button', 'font-weight');
+  user-select: none;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  outline: none;
+
+  > span {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  & + & {
+    margin-left: 8px;
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  @include set-button-color($button-colors);
+  @include set-button-size($button-sizes);
+
+  @include when(loading) {
+    position: relative;
+    pointer-events: none;
+
+    &:before {
+      // mask the button
+      z-index: 1;
+      pointer-events: none;
+      content: '';
+      position: absolute;
+      left: -1px;
+      top: -1px;
+      right: -1px;
+      bottom: -1px;
+      border-radius: inherit;
+    }
+  }
+
+  @include when(disabled) {
+    &,
+    &:hover {
+      cursor: not-allowed;
+      background-image: none;
+    }
+  }
+}
+

@@ -4,7 +4,7 @@ import type { Theme } from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
 import './style.css';
 import HonyUI from 'hony-ui';
-import '../../../packages/styles/theme-dark/index.scss';
+import 'hony-ui/styles/theme-dark/index.scss';
 import 'hony-ui/styles/index.scss';
 import ElementPlus from 'element-plus';
 import 'element-plus/theme-chalk/index.css';

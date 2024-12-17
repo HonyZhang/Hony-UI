@@ -1,7 +1,7 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import { HonyButton } from 'hony-ui';
-import 'hony-ui/styles/index.scss';
+import 'hony-ui/components/hony-button/style';
 
 const app = createApp(App);
 
