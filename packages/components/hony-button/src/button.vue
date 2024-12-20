@@ -86,7 +86,7 @@
 import type { ButtonProps } from './buttton';
 import { useNamespace } from '@hony-ui/hooks';
 import { computed } from 'vue';
-import { generateIconClasses } from '@hony-ui/components/hony-button/src/icon-classes';
+import { generateIconClasses } from './icon-classes';
 
 defineOptions({ name: 'HonyButton' });
 

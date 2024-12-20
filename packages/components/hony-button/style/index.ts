@@ -1,3 +1,3 @@
-import '@hony-ui/styles/src/base.scss';
-import '@hony-ui/styles/src/hony-icon.scss';
-import '@hony-ui/styles/src/hony-button.scss';
+import '../../../styles/base.scss';
+import '../../../styles/hony-icon.scss';
+import '../../../styles/hony-button.scss';

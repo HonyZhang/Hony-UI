@@ -2,9 +2,6 @@ import type { App, Plugin } from 'vue';
 
 export type SFCWithInstall<T> = T & Plugin;
 
-const resolvePath = (relativePath: string) =>
-  new URL(relativePath, import.meta.url).href;
-
 export const withInstall = <T, E extends Record<string, any>>(
   main: T,
   extra?: E
